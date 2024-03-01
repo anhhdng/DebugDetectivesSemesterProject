@@ -152,6 +152,14 @@ public class ControllerTest {
         assertEquals("Error, test results are different than expected", expected, actual);
     }
 
-
+    @Test
+    public void divideByZero() throws Exception {
+        //purpose: To ensure that an error is thrown if user attempts to divide by zero
+        Controller num = new Controller();
+        num.divideByZero("3/0");
+        String actual = num.onScreenText;
+        String expected = "ERROR";
+        assertEquals("Error, test results are different than expected", expected, actual);
+    }
 
 }

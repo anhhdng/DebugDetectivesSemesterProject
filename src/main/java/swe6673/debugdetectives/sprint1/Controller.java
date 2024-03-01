@@ -39,10 +39,10 @@ public class Controller {
         this.currentEquation = input;
     }
 
-    public void equals(){
+    public void equals() throws Exception{
 
     }
-    public void clearScreen(){
+    public void clearScreen() throws Exception{
 
     }
 
@@ -54,5 +54,11 @@ public class Controller {
         String sciNotation = "";
         return sciNotation;
     }
+
+    void divideByZero (String number){
+        this.onScreenText = "ERROR";
+    }
+
+
 
 }
