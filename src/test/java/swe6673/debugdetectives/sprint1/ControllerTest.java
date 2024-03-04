@@ -111,18 +111,31 @@ public class ControllerTest {
 
     @Test
     public void equalsButton() throws Exception {
-        //purpose to check to ensure doubles are converted to string
+        //purpose: to ensure that the correct equation was sent for processing
         Controller equation = new Controller();
-        /*Add test!!!
-        Add test!!!
-        Add test!!!
-        Add test!!!
-        Add test!!!
-        Add test!!!
-         */
-        String actual = "";
-        String expected = "";
+        equation.equals("4 x 3 + 8");
+        String actual = equation.currentInput;
+        String expected = "4 x 3 + 8";
         assertEquals("Error, test results are different than expected", expected, actual);
+    }
+
+    @Test
+    public void Parenthesis() throws Exception {
+        //purpose: to ensure that the program calculates equations with parenthesis accurately
+        Controller equation = new Controller();
+        equation.equals("(3 + 2) * (6 - 4)");
+        String actual = equation.onScreenText;
+        String expected = "10";
+        assertEquals("Error, test results are different than expected", expected, actual);
+    }
+
+    @Test
+    public void PEDMAS() throws Exception {
+        //purpose to test to ensure that the calculator follows the PEDMAS mathmatic rule
+        Controller equation = new Controller();
+        equation.equals("2 + 5 - 3 * 8"); //-14 w/ pedmas 24 w/o pedmas
+        String actual = equation.onScreenText;
+        String expected = "14";
     }
 
     @Test
@@ -160,6 +173,42 @@ public class ControllerTest {
         String actual = num.onScreenText;
         String expected = "ERROR";
         assertEquals("Error, test results are different than expected", expected, actual);
+    }
+
+    @Test
+    public void degreeModeTest() throws Exception{
+        //purpose: to ensure that degrees are used during calulation of trig functions
+        Controller deg = new Controller();
+        deg.degreeMode(true);
+        deg.setEquation("sin(60)");
+        String actual = deg.onScreenText;
+        Double expected = 0.8660254;
+        assertEquals("Error, test results are different than expected", expected, actual);
+
+    }
+
+    @Test
+    public void radianModeTest() throws Exception{
+        //purpose: to ensure that degrees are used during calulation of trig functions
+        Controller deg = new Controller();
+        deg.radianMode(true);
+        deg.setEquation("sin(0.5)");
+        String actual = deg.onScreenText;
+        Double expected = 0.4794255386;
+        assertEquals("Error, test results are different than expected", expected, actual);
+
+    }
+
+    @Test
+    public void gradianModeTest() throws Exception{
+        //purpose: to ensure that degrees are used during calulation of trig functions
+        Controller deg = new Controller();
+        deg.gradianMode(true);
+        deg.setEquation("sin(100)");
+        String actual = deg.onScreenText;
+        Double expected = 0.4794255386;
+        assertEquals("Error, test results are different than expected", expected, actual);
+
     }
 
 }
