@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 public class LengthConverterTest {
     @Test
     public void convertMeterToCentimeter(){
+        //purpose: test meter to centimeter conversion
         LengthConverter convert = new LengthConverter();
         double expected = 1000.0;
         double actual = convert.convertFrom(10.0, "meter", "centimeter");
@@ -13,6 +14,7 @@ public class LengthConverterTest {
     }
     @Test
     public void convertMeterToKilometer(){
+        //purpose: test meter to kilometer
         LengthConverter convert = new LengthConverter();
         double expected = 0.01;
         double actual = convert.convertFrom(10.0, "meter", "kilometer");
@@ -20,6 +22,7 @@ public class LengthConverterTest {
     }
     @Test
     public void convertMeterToMillimeter(){
+        //purpose: test meter to millimeter
         LengthConverter convert = new LengthConverter();
         double expected = 10000.0;
         double actual = convert.convertFrom(10.0, "meter", "millimeter");
@@ -27,6 +30,7 @@ public class LengthConverterTest {
     }
     @Test
     public void convertMeterToMile(){
+        //purpose: test meter to mile with long decimal point output
         LengthConverter convert = new LengthConverter();
         double expected = 0.000621371;
         double actual = convert.convertFrom(10.0, "meter", "mile");
@@ -34,6 +38,7 @@ public class LengthConverterTest {
     }
     @Test
     public void convertMeterToYard(){
+        //purpose: test meter to yard
         LengthConverter convert = new LengthConverter();
         double expected = 1.09361;
         double actual = convert.convertFrom(10.0, "meter", "yard");
@@ -41,6 +46,7 @@ public class LengthConverterTest {
     }
     @Test
     public void convertMeterToFoot(){
+        //purpose: test meter to foot
         LengthConverter convert = new LengthConverter();
         double expected = 3.28084;
         double actual = convert.convertFrom(10.0, "meter", "foot");
@@ -48,6 +54,7 @@ public class LengthConverterTest {
     }
     @Test
     public void convertMeterToInch(){
+        //test meter to inch
         LengthConverter convert = new LengthConverter();
         double expected = 39.3701;
         double actual = convert.convertFrom(10.0, "meter", "inch");
