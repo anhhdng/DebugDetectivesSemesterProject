@@ -38,7 +38,7 @@ public class DataConverterTest {
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
-    public void convertMegabitsToTeraByte(){
+    public void testNegativeValue(){
         //purpose: test megabit to terabyte with negative value
         DataConverter convert = new DataConverter();
         double expected = -0.0000074025	;
@@ -47,7 +47,7 @@ public class DataConverterTest {
     }
     @Test
     public void testZeroValue(){
-        //purpose: test data converter with negative value
+        //purpose: test data converter with zero value
         DataConverter convert = new DataConverter();
         double expected = 0.0	;
         double actual = convert.convertFrom(0.0, "megabyte", "terabit");
