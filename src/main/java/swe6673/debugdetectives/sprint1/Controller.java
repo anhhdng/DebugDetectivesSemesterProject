@@ -39,8 +39,8 @@ public class Controller {
         this.currentEquation = input;
     }
 
-    public void equals() throws Exception{
-
+    public void equals(String input) throws Exception{
+        this.currentInput = input;
     }
     public void clearScreen() throws Exception{
 
@@ -57,6 +57,18 @@ public class Controller {
 
     void divideByZero (String number){
         this.onScreenText = "ERROR";
+    }
+
+    boolean degreeMode(boolean deg){
+        return deg;
+    }
+
+    boolean radianMode(boolean rad){
+        return rad;
+    }
+
+    boolean gradianMode(boolean grad){
+        return grad;
     }
 
 
