@@ -3,22 +3,24 @@ package swe6673.debugdetectives.sprint1;
 public class Exponential {
 
     double squareRoot(double num, double base){
-        return num;
+        double squareRoot = Math.pow(num,1.0/base);
+        return squareRoot;
     }
 
     double naturalLogarithm(double num){
-        double ln = 0.0;
+        double ln = Math.log(num);
         return ln;
     }
 
     double base10Log(double num){
-        double log = 0.0;
+        double log = Math.log10(num);
         return log;
 
     }
 
     double exponent(double num, double base){
-        return num;
+        double result = Math.pow(num, 1/base);
+        return result;
     }
 
 

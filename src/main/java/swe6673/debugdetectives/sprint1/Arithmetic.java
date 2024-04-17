@@ -5,21 +5,24 @@ package swe6673.debugdetectives.sprint1;
 public class Arithmetic {
 
     public double add(double num1, double num2) {
-        return 0;
+        return (num1) + (num2);
     }
 
     public double subtract(double num1, double num2) {
-        return 0;
+        return num1 - num2;
     }
 
 
     public double multiply(double num1, double num2) {
-        return 0;
+        return num1 * num2;
     }
 
 
     public double divide(double num1, double num2) {
-        return 0;
+        if (num2 == 0) {
+            throw new IllegalArgumentException("Cannot divide by zero");
+        }
+        return num1/num2;
     }
 
 }
