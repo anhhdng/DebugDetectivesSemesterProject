@@ -37,28 +37,34 @@ public class EnergyConverter {
     }
 
     public double convertFrom(double amount, String unit, String toUnit) {
-        double fromConversionFactor = getConversionFactor(unit);
-        double toConversionFactor = getConversionFactor(toUnit);
+        try {
+            double fromConversionFactor = getConversionFactor(unit);
+            double toConversionFactor = getConversionFactor(toUnit);
 
-        if (fromConversionFactor == -1 || toConversionFactor == -1) {
-            throw new IllegalArgumentException("Invalid units for conversion: " + unit + " to " + toUnit);
+            if (fromConversionFactor == -1 || toConversionFactor == -1) {
+                throw new IllegalArgumentException("Invalid units for conversion: " + unit + " to " + toUnit);
+            }
+
+            double convertedAmount;
+
+            if (unit.equalsIgnoreCase("joules") && toUnit.equalsIgnoreCase("calories")) {
+                convertedAmount = amount * 0.000239006;
+            } else if (unit.equalsIgnoreCase("calories") && toUnit.equalsIgnoreCase("kilocalories")) {
+                convertedAmount = amount * 0.001;
+            } else {
+                convertedAmount = amount * (fromConversionFactor / toConversionFactor);
+            }
+
+            if (amount < 0 && convertedAmount > 0) {
+                convertedAmount *= -1;
+            }
+
+            return convertedAmount;
         }
-
-        double convertedAmount;
-
-        if (unit.equalsIgnoreCase("joules") && toUnit.equalsIgnoreCase("calories")) {
-            convertedAmount = amount * 0.000239006;
-        } else if (unit.equalsIgnoreCase("calories") && toUnit.equalsIgnoreCase("kilocalories")) {
-            convertedAmount = amount * 0.001;
-        } else {
-            convertedAmount = amount * (fromConversionFactor / toConversionFactor);
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
         }
-
-        if (amount < 0 && convertedAmount > 0) {
-            convertedAmount *= -1;
-        }
-
-        return convertedAmount;
     }
 
     private double getConversionFactor(String unit) {

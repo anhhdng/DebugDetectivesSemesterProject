@@ -3,50 +3,122 @@ package swe6673.debugdetectives.sprint1;
 public class Trigonometric {
 
     double sin(double num) {
-        return Math.sin(Math.toRadians(num));
+        try {
+            return Math.sin(Math.toRadians(num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double cos(double num) {
-        return Math.cos(Math.toRadians(num));
+        try {
+            return Math.cos(Math.toRadians(num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double tan(double num) {
-        return Math.tan(Math.toRadians(num));
+        try {
+            return Math.tan(Math.toRadians(num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double sec(double num) {
-        return 1 / Math.cos(Math.toRadians(num));
+        try {
+            return 1 / Math.cos(Math.toRadians(num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double csc(double num) {
-        return 1 / Math.sin(Math.toRadians(num));
+        try {
+            return 1 / Math.sin(Math.toRadians(num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double cot(double num) {
-        return 1 / Math.tan(Math.toRadians(num));
+        try {
+            return 1 / Math.tan(Math.toRadians(num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double arcsin(double num) {
-        return Math.toDegrees(Math.asin(num));
+        try {
+            return Math.toDegrees(Math.asin(num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double arccos(double num) {
-        return Math.toDegrees(Math.acos(num));
+        try {
+            return Math.toDegrees(Math.acos(num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double arctan(double num) {
-        return Math.toDegrees(Math.atan(num));
+        try {
+            return Math.toDegrees(Math.atan(num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double arcsec(double num) {
-        return Math.toDegrees(Math.acos(1 / num));
+        try {
+            return Math.toDegrees(Math.acos(1 / num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double arccsc(double num) {
-        return Math.toDegrees(Math.asin(1 / num));
+        try {
+            return Math.toDegrees(Math.asin(1 / num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 
     double arccot(double num) {
-        return Math.toDegrees(Math.atan(1 / num));
+        try {
+            return Math.toDegrees(Math.atan(1 / num));
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 }

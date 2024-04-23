@@ -34,9 +34,15 @@ public class TimeConverter {
     }
 
     public double convertFrom(double amount, String unit, String toUnit) {
-        TimeConvert from = units.get(unit);
-        TimeConvert to = units.get(toUnit);
+        try {
+            TimeConvert from = units.get(unit);
+            TimeConvert to = units.get(toUnit);
 
-        return amount * from.getConversionFactor() / to.getConversionFactor();
+            return amount * from.getConversionFactor() / to.getConversionFactor();
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 }

@@ -40,13 +40,19 @@ public class VolumeConverter {
     }
 
     public double convertFrom(double amount, String unit, String toUnit) {
-        VolumeConvert from = units.get(unit);
-        VolumeConvert to = units.get(toUnit);
+        try {
+            VolumeConvert from = units.get(unit);
+            VolumeConvert to = units.get(toUnit);
 
-        if (from == null || to == null) {
-            throw new IllegalArgumentException("Unknown unit");
+            if (from == null || to == null) {
+                throw new IllegalArgumentException("Unknown unit");
+            }
+
+            return amount * (from.getConversionFactor() / to.getConversionFactor());
         }
-
-        return amount * (from.getConversionFactor() / to.getConversionFactor());
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
+        }
     }
 }

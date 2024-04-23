@@ -34,9 +34,15 @@ public class MassConverter {
     }
 
     public double convertFrom(double amount, String unit, String toUnit) {
-        MassConvert from = units.get(unit);
-        MassConvert to = units.get(toUnit);
+        try {
+            MassConvert from = units.get(unit);
+            MassConvert to = units.get(toUnit);
 
-        return amount * (from.getConversionFactor() / to.getConversionFactor());
+            return amount * (from.getConversionFactor() / to.getConversionFactor());
+        }
+        catch(Exception e){
+            throw new IllegalArgumentException("Unknown unit: " + unit);
+        }
+
     }
 }

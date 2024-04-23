@@ -22,17 +22,24 @@ public class AreaConverter {
         conversionRates.put("acre", 0.000247105);
     }
 
-    double convertFrom(double amount, String unit, String toUnit){
+    double convertFrom(double amount, String unit, String toUnit) {
+        try {
+            if (!conversionRates.containsKey(unit) || !conversionRates.containsKey(toUnit)) {
+                return 0;
+            }
 
-        if (!conversionRates.containsKey(unit) || !conversionRates.containsKey(toUnit)) {
+            // Convert the amount from unit to toUnit
+            double conversionRate = conversionRates.get(unit);
+            double result = amount / conversionRate * conversionRates.get(toUnit);
+
+            return result;
+        }
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
             return 0;
         }
 
-        // Convert the amount from unit to toUnit
-        double conversionRate = conversionRates.get(unit);
-        double result = amount / conversionRate * conversionRates.get(toUnit);
 
-        return result;
     }
 
 

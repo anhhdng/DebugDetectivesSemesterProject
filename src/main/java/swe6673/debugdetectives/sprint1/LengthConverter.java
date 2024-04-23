@@ -38,20 +38,26 @@ public class LengthConverter {
     }
 
     public double convertFrom(double amount, String unit, String toUnit) {
-        double fromConversionFactor = getConversionFactor(unit);
-        double toConversionFactor = getConversionFactor(toUnit);
+        try {
+            double fromConversionFactor = getConversionFactor(unit);
+            double toConversionFactor = getConversionFactor(toUnit);
 
-        if (fromConversionFactor == -1 || toConversionFactor == -1) {
-            throw new IllegalArgumentException("Invalid units for conversion: " + unit + " to " + toUnit);
+            if (fromConversionFactor == -1 || toConversionFactor == -1) {
+                throw new IllegalArgumentException("Invalid units for conversion: " + unit + " to " + toUnit);
+            }
+
+            double convertedAmount = amount * (fromConversionFactor / toConversionFactor);
+
+            if (amount < 0 && convertedAmount > 0) {
+                convertedAmount *= -1;
+            }
+
+            return convertedAmount;
         }
-
-        double convertedAmount = amount * (fromConversionFactor / toConversionFactor);
-
-        if (amount < 0 && convertedAmount > 0) {
-            convertedAmount *= -1;
+        catch (Exception e){
+            System.out.println("An Error has occurred, please check your input and try again");
+            return 0;
         }
-
-        return convertedAmount;
     }
 
     private double getConversionFactor(String unit) {
