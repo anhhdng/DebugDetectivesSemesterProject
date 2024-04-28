@@ -110,13 +110,6 @@ public class ArithmeticTest {
     }
 
     @Test
-
-
-
-
-
-
-
     public void subtractIncorrectNumbers() throws Exception {
         //Purpose: Test subtract function does not return a false positive
         Arithmetic num = new Arithmetic();

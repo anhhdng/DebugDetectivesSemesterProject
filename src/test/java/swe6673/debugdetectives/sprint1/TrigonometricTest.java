@@ -7,21 +7,6 @@ import static org.junit.Assert.assertEquals;
 public class TrigonometricTest {
 
 
-    /*
-    *
-    *
-    *
-    *
-    *
-    MORE TESTS ARE NEEDED TO ENSURE ACCURACY!!!!!!
-    *
-    *
-    *
-    *
-    *
-    *
-     */
-
     @Test
     public void sinTest() throws Exception {
         //purpose: To ensure that SIN is accurately calculated

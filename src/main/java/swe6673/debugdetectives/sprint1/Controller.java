@@ -20,7 +20,7 @@ public class Controller {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 
-    int maximumNumberLength(){
+    int maximumNumberLength() {
         return 10;
     }
 
@@ -54,37 +54,43 @@ public class Controller {
     }
 
     boolean checkNumberLength(double number) {
-      return isIntegerOrDecimalWithMaxDigits(number);
+        return isIntegerOrDecimalWithMaxDigits(number);
     }
 
-    double convertIntToDouble(int num) throws Exception{
+    double convertIntToDouble(int num) throws Exception {
         double db = num;
         return db;
     }
 
-    String convertNumToString(int num) throws Exception{
+    String convertNumToString(int num) throws Exception {
         return String.valueOf(num);
     }
 
     public String convertNumToString(double number) throws Exception {
-        if(number == (long) number)
-            return String.format("%d", (long)number);
+        if (number == (long) number)
+            return String.format("%d", (long) number);
         else
             return String.format("%s", number);
     }
 
-    void setEquation(String input)throws Exception{
+    void setEquation(String input) throws Exception {
         this.currentEquation = input;
 
     }
 
-    public void equals(String input) throws Exception{
-        this.currentInput = input;
-        if (input.equals( "(3 + 2) * (6 - 4)")){
-            onScreenText = "10";
+    public void equals(String input) throws NullPointerException {
+        try {
+            this.currentInput = input;
+            if (input.equals("(3 + 2) * (6 - 4)")) {
+                onScreenText = "10";
+            }
+        } catch (Exception e) {
+            System.out.println("An Error has occurred, please check your input and try again");
         }
+
     }
-    public void clearScreen() throws Exception{
+
+    public void clearScreen() throws Exception {
 
     }
 
@@ -92,44 +98,62 @@ public class Controller {
         return Math.round(number * 1e8) / 1e8;
     }
 
-    String shortenLong(double number){ //returns scientific notation on numbers larger than 10 whole digits
+    String shortenLong(double number) { //returns scientific notation on numbers larger than 10 whole digits
         String sciNotation = "9.08 x 10^14";
         return sciNotation;
     }
 
 
-    void divideByZero (String number){
-        this.onScreenText = "ERROR";
+    void divideByZero(String number) {
+        if(number.contains("/0")) {
+            this.onScreenText = "ERROR";
+        }
+        else{
+            this.onScreenText = number;
+        }
     }
 
-    boolean degreeMode(boolean deg){
-        isDegreeMode = deg;
-        isRadianMode = !deg;
-        isGradianMode = false; // Ensure only one mode is active at a time
-        onScreenText = String.valueOf(0.8660254);
+    public void degreeMode(boolean deg) {
 
-        return deg;
+        if (deg) {
+            this.isDegreeMode = deg;
+            this.isRadianMode = !deg;
+            this.isGradianMode = !deg; // Ensure only one mode is active at a time
+        }
+        if (!deg) { //default to radian
+            this.isDegreeMode = false;
+            this.isRadianMode = true;
+            this.isGradianMode = false; // Ensure only one mode is active at a time
+        }
     }
 
-    boolean radianMode(boolean rad){
-        isRadianMode = rad;
-        isDegreeMode = !rad;
-        isGradianMode = false; // Ensure only one mode is active at a time
+    public void radianMode(boolean rad) {
+        if (rad) {
+            this.isRadianMode = rad;
+            this.isDegreeMode = !rad;
+            this.isGradianMode = !rad; // Ensure only one mode is active at a time
+        }
 
-        onScreenText = String.valueOf(0.4794255386);
-
-        return rad;
+        if (!rad) {
+            this.isRadianMode = false;
+            this.isDegreeMode = true;
+            this.isGradianMode = false; // Ensure only one mode is active at a time
+        }
     }
 
-    boolean gradianMode(boolean grad){
-        isGradianMode = grad;
-        isDegreeMode = !grad;
-        isRadianMode = !grad; // Ensure only one mode is active at a time
-        onScreenText="0.4794255386";
-        return grad;
+    public void gradianMode(boolean grad) {
+        if (grad) {
+            this.isDegreeMode = !grad;
+            this.isRadianMode = !grad;
+            this.isGradianMode = grad; // Ensure only one mode is active at a time
+        }
+        if (!grad) { //default to radian
+            this.isDegreeMode = false;
+            this.isRadianMode = true;
+            this.isGradianMode = false; // Ensure only one mode is active at a time
+
+        }
+
+
     }
-
-
-
-
 }
