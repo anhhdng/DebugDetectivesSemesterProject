@@ -6,13 +6,13 @@ public class DataConverter {
     DataConverter[] units;
 
 
-    double convertFrom(double amount, String unit, String toUnit){
+    double convertFrom(double amount, String unit, String toUnit) {
 
         try {
             double result = 0;
             switch (unit) {
                 case "byte":
-                    if (toUnit.equals("kiloByte")) {
+                    if (toUnit.equals("kilobyte")) {
                         result = amount / 1024;
                     }
                     break;
@@ -39,6 +39,9 @@ public class DataConverter {
                 case "megabyte":
                     if (toUnit.equals("terabit")) {
                         result = amount / (1024 * 1024);
+                    }
+                    if (toUnit.equals("kilobyte")) {
+                        result = amount / (1024);
                     }
                     break;
             }
