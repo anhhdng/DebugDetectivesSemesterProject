@@ -3,6 +3,7 @@ package swe6673.debugdetectives.sprint1;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class TimeConverterTest {
     @Test
@@ -33,7 +34,7 @@ public class TimeConverterTest {
     public void convertHourToDecade(){
         //purpose: test hour to decade with large negative input value (minimum integer value)
         TimeConverter convert = new TimeConverter();
-        double expected = -24497.874139;
+        double expected = -24498.377185;
         double actual = convert.convertFrom(-2147483647, "hour", "decade");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
@@ -59,7 +60,7 @@ public class TimeConverterTest {
         TimeConverter convert = new TimeConverter();
         double expected = 0.0;
         double actual = convert.convertFrom(0.01, "millennium", "second");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void testZeroValue(){

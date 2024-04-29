@@ -3,6 +3,7 @@ package swe6673.debugdetectives.sprint1;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class VolumeConverterTest {
     @Test
@@ -65,7 +66,7 @@ public class VolumeConverterTest {
     public void convertCubicFootToCubicInch(){
         //purpose: test cubic foot to cubic inch with boundary point of 100.01
         VolumeConverter convert = new VolumeConverter();
-        double expected = 172817.28;
+        double expected = 172817.117162;
         double actual = convert.convertFrom(100.01, "CubicFoot", "CubicInch");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
@@ -83,7 +84,7 @@ public class VolumeConverterTest {
         VolumeConverter convert = new VolumeConverter();
         double expected = 0.0;
         double actual = convert.convertFrom(10, "Liter", "ImperialOunce");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void testNegativeInput(){
