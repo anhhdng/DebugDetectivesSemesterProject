@@ -42,7 +42,6 @@ public class SpeedConverterTest {
         double actual = convert.convertFrom(value, "cm/min", "ft/h");
         Formatter fmt = new Formatter();
         fmt = fmt.format("%.1f", actual);
-        System.out.println(fmt);
         assertEquals("Error, test results are different than expected", expected, Double.valueOf(String.valueOf(fmt)), 0.0003);
     }
     @Test

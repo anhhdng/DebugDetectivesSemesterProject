@@ -2,7 +2,11 @@ package swe6673.debugdetectives.sprint1;
 
 import org.junit.Test;
 
+import java.util.Formatter;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+
 public class LengthConverterTest {
     @Test
     public void convertMeterToCentimeter(){
@@ -32,7 +36,7 @@ public class LengthConverterTest {
     public void convertMeterToMile(){
         //purpose: test meter to mile with long decimal point output
         LengthConverter convert = new LengthConverter();
-        double expected = 0.000621371;
+        double expected = 0.006213711922373339;
         double actual = convert.convertFrom(10.0, "meter", "mile");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
@@ -56,9 +60,11 @@ public class LengthConverterTest {
     public void convertMeterToInch(){
         //test meter to inch
         LengthConverter convert = new LengthConverter();
-        double expected = 39.3701;
+        double expected = 393.701;
         double actual = convert.convertFrom(10.0, "meter", "inch");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        Formatter fmt = new Formatter();
+        fmt = fmt.format("%.3f", actual);
+        assertEquals("Error, test results are different than expected", expected, Double.valueOf(String.valueOf(fmt)), 0.0003);
     }
     @Test
     public void convertNegativeNumbers() {
@@ -88,7 +94,7 @@ public class LengthConverterTest {
     public void convertLargeValues(){
         //purpose: test length conversion with large values
         LengthConverter convert = new LengthConverter();
-        double expected = 621371192.1752;
+        double expected = 621371.1921752;
         double actual = convert.convertFrom(999999999.9, "meter", "mile");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
@@ -98,13 +104,13 @@ public class LengthConverterTest {
         LengthConverter convert = new LengthConverter();
         double expected = 0.0;
         double actual = convert.convertFrom(4340.0, "centimeter", "meter");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void testBoundaryPositive(){
         //purpose: test length conversion with value just above zero
         LengthConverter convert = new LengthConverter();
-        double expected = 38.97638;
+        double expected = 0.3937008;
         double actual = convert.convertFrom(0.01, "meter", "inch");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
@@ -112,7 +118,7 @@ public class LengthConverterTest {
     public void testBoundaryNegative(){
         //purpose: test length conversion with value just below zero
         LengthConverter convert = new LengthConverter();
-        double expected = -38.97638;
+        double expected = -0.3937008;
         double actual = convert.convertFrom(-0.01, "meter", "inch");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }

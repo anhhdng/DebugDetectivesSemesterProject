@@ -17,7 +17,7 @@ public class EnergyConverterTest {
     public void convertCaloriesToKilocalories(){
         //purpose: test joules to calories with long decimal value output
         EnergyConverter convert = new EnergyConverter();
-        double expected = 0.01;
+        double expected = 0.00001;
         double actual = convert.convertFrom(0.01, "calories", "kilocalories");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
@@ -57,7 +57,7 @@ public class EnergyConverterTest {
     public void testMaximumValue(){
         //purpose: test energy converter with maximum integer value
         EnergyConverter convert = new EnergyConverter();
-        double expected = 2147483.65 ;
+        double expected = 2147483.647 ;
         double actual = convert.convertFrom(2147483647 , "joules", "kilojoules");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
