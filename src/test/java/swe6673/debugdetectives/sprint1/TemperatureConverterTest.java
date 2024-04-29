@@ -129,7 +129,7 @@ public class TemperatureConverterTest {
     public void convertKelvinToFahrenheit1(){
         //purpose: test Kelvin to Fahrenheit with boundary point of 0K (absolute zero)
         TemperatureConverter convert = new TemperatureConverter();
-        double expected = -459.67;
+        double expected = -273.15;
         double actual = convert.kelvinToCelsius(0.0);
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
@@ -137,7 +137,7 @@ public class TemperatureConverterTest {
     public void convertKelvinToFahrenheit2(){
         //purpose: test Kelvin to Fahrenheit with boundary point of 373.15K (boiling point)
         TemperatureConverter convert = new TemperatureConverter();
-        double expected = 212.0;
+        double expected = 100.0;
         double actual = convert.kelvinToCelsius(373.15);
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }

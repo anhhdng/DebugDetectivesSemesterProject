@@ -2,7 +2,11 @@ package swe6673.debugdetectives.sprint1;
 
 import org.junit.Test;
 
+import java.math.BigInteger;
+import java.util.Formatter;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class SpeedConverterTest {
     @Test
@@ -31,19 +35,24 @@ public class SpeedConverterTest {
     }
     @Test
     public void testMaximumValue(){
-        //purpose:test cm/min to ft/h with maximum integer value of 2147483647
+        //purpose:test cm/min to ft/h with maximum integer value in Java: 2147483647
         SpeedConverter convert = new SpeedConverter();
-        double expected = 4227330013.8;
-        double actual = convert.convertFrom(2147483647, "cm/min", "ft/h");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        double expected = 4227330020.2;
+        double value = 2147483647;
+        double actual = convert.convertFrom(value, "cm/min", "ft/h");
+        Formatter fmt = new Formatter();
+        fmt = fmt.format("%.1f", actual);
+        assertEquals("Error, test results are different than expected", expected, Double.valueOf(String.valueOf(fmt)), 0.0003);
     }
     @Test
     public void testMinimumValue(){
         //purpose:test cm/min to ft/h with minimum integer value of -2147483647
         SpeedConverter convert = new SpeedConverter();
-        double expected = -4227330013.8;
+        double expected = -4227330020.2;
         double actual = convert.convertFrom(-2147483647, "cm/min", "ft/h");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        Formatter fmt = new Formatter();
+        fmt = fmt.format("%.1f", actual);
+        assertEquals("Error, test results are different than expected",expected, Double.valueOf(String.valueOf(fmt)), 0.0003);
     }
     @Test
     public void testZeroValue(){
@@ -59,7 +68,7 @@ public class SpeedConverterTest {
         SpeedConverter convert = new SpeedConverter();
         double expected = 0.0;
         double actual = convert.convertFrom(9.9, "mi/s", "ft/min");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
 
 

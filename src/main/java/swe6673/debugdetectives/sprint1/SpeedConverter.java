@@ -2,12 +2,13 @@ package swe6673.debugdetectives.sprint1;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Formatter;
 
 public class SpeedConverter {
 
     public double convertFrom(double value, String fromUnit, String toUnit) {
         try {
-            double result = 0.0;
+            double result = 0;
             switch (fromUnit) {
                 case "km/h":
                     result = convertKmHTo(value, toUnit);
@@ -85,7 +86,9 @@ public class SpeedConverter {
             double result = 0.0;
             switch (toUnit) {
                 case "ft/h":
-                    result = value * 0.0328084 * 60;
+                    result = value * 1.96850394; //0.0328084 * 60
+
+                    //result = value * (60/(2.54*12));
                     break;
                 default:
                     throw new IllegalArgumentException("Invalid 'to' unit: " + toUnit);

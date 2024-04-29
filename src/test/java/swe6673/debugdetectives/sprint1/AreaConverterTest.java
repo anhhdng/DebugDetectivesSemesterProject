@@ -217,6 +217,7 @@ public class AreaConverterTest {
         AreaConverter convert = new AreaConverter();
         double expected = 0.0;
         double actual = convert.convertFrom(10.0, "kilometer", "mile");
+        System.out.println(actual);
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
