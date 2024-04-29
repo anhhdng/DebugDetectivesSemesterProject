@@ -21,7 +21,7 @@ public class DataConverterTest {
         actual = convert.convertFrom(8704, "byte", "kilobyte");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
-        //Negative Test
+        //False Positive Test
         expected = 8.0;
         actual = convert.convertFrom(8000, "bite", "kilo");
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
@@ -41,7 +41,7 @@ public class DataConverterTest {
         actual = convert.convertFrom(800, "bit", "byte");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
-        //Negative Test
+        //False Positive Test
         expected = 0.0;
         actual = convert.convertFrom(80, "bit", "byte");
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
@@ -61,7 +61,7 @@ public class DataConverterTest {
         actual = convert.convertFrom(80.0, "gigibit", "gigibyte");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
-        //Negative Test
+        //False Positive Test
         expected = 80.0;
         actual = convert.convertFrom(80.0, "gigibit", "gigibyte");
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
@@ -83,7 +83,7 @@ public class DataConverterTest {
         actual = convert.convertFrom(981.15, "gigabit", "gigabyte");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
-        //Negative Test
+        //False Positive Test
         expected = 8;
         actual = convert.convertFrom(8, "gigabit", "gigabyte");
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
@@ -105,7 +105,7 @@ public class DataConverterTest {
         actual = convert.convertFrom(800000000, "megabit", "terabyte");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
-        //Negative Test
+        //False Positive Test
         expected = 1	;
         actual = convert.convertFrom(1024, "megabit", "terabyte");
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
@@ -118,7 +118,7 @@ public class DataConverterTest {
         double actual = convert.convertFrom(0.0, "megabyte", "terabit");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
-        //Negative Test
+        //False Positive Test
         expected = 0.0	;
         actual = convert.convertFrom(10000.0, "megabyte", "terabit");
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
@@ -135,7 +135,7 @@ public class DataConverterTest {
         double actual = convert.convertFrom(2147483647 , "byte", "kilobyte");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
-        //Negative Test
+        //False Positive Test
         expected = 20971510.00;
         actual = convert.convertFrom(21474836470.0 , "byte", "kilobyte");
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
@@ -156,7 +156,7 @@ public class DataConverterTest {
         actual = convert.convertFrom(1 , "byte", "kilobyte");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
-        //Negative Test
+        //False Positive Test
         expected = 1 ;
         actual = convert.convertFrom(0 , "byte", "kilobyte");
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
