@@ -25,7 +25,7 @@ public class ControllerTest {
         expected = false;
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative test
+        //False Positive Test
         actual = numberLength.checkNumberLength(5);
         expected = false;
         assertNotEquals("Error, test results are different than expected", expected, actual);
@@ -45,7 +45,7 @@ public class ControllerTest {
         expected = true;
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative test
+        //False Positive Test
         actual = numberLength.checkNumberLength(5);
         expected = false;
         assertNotEquals("Error, test results are different than expected", expected, actual);
@@ -67,7 +67,7 @@ public class ControllerTest {
         expected = false;
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         actual = numberLength.checkNumberLength(1.0); // 1 decimal and one whole number
         expected = false;
         assertNotEquals("Error, test results are different than expected", expected, actual);
@@ -88,7 +88,7 @@ public class ControllerTest {
         expected = true;
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         actual = numberLength.checkNumberLength(1.020395687223823239823); // 21 decimals and one whole number
         expected = true;
         assertNotEquals("Error, test results are different than expected", expected, actual);
@@ -109,7 +109,7 @@ public class ControllerTest {
         expected = 238943.0;
         assertEquals("Error, test results are different than expected", expected, actual, 0.0000003);
 
-        //Negative Test
+        //False Positive Test
         actual = number.convertIntToDouble(2);
         expected = 1.999999;
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0000003);
@@ -130,7 +130,7 @@ public class ControllerTest {
         expected = -43.0;
         assertEquals("Error, test results are different than expected", expected, actual, 0.0000003);
 
-        //Negative Test
+        //False Positive Test
         actual = number.convertIntToDouble(-22);
         expected = 22.0;
         assertNotEquals("Error, test results are different than expected", expected, actual,0.0000003);
@@ -146,7 +146,7 @@ public class ControllerTest {
         String expected = "";
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         actual = clear.onScreenText;
         expected = " ";
         assertNotEquals("Error, test results are different than expected", expected, actual);
@@ -167,7 +167,7 @@ public class ControllerTest {
         expected = "1";
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         actual = dub.convertNumToString(1.0);
         expected = "1.0";
         assertNotEquals("Error, test results are different than expected", expected, actual);
@@ -188,7 +188,7 @@ public class ControllerTest {
         expected = "5";
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         actual = int_.convertNumToString(-8);
         expected = "8";
         assertNotEquals("Error, test results are different than expected", expected, actual);
@@ -211,7 +211,7 @@ public class ControllerTest {
         expected = "(0*2-11)/3";
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         num.setEquation(null);
         actual = num.currentEquation;
         expected = "";
@@ -235,7 +235,7 @@ public class ControllerTest {
         expected = "1+1+5-13";
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         equation.equals(null);
         actual = equation.currentInput;
         expected = "";
@@ -259,7 +259,7 @@ public class ControllerTest {
         expected = "27";
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         equation.equals("(4 - 2) * (99 + 1)");
         actual = equation.onScreenText;
         expected = "";
@@ -283,7 +283,7 @@ public class ControllerTest {
         expected = "-54";
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         equation.equals("5 + 2 - 8 * 3"); //-14 w/ pedmas 24 w/o pedmas
         actual = equation.onScreenText;
         expected = "-3";
@@ -306,7 +306,7 @@ public class ControllerTest {
         expected = 0.23856391428;
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         actual = num.shortenDecimal(1.0);
         expected = 1.0;
         assertNotEquals("Error, test results are different than expected", expected, actual);
@@ -327,7 +327,7 @@ public class ControllerTest {
         expected = 0.23856391427;
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         actual = num.shortenDecimal(1.0);
         expected = 1.0;
         assertNotEquals("Error, test results are different than expected", expected, actual);
@@ -348,7 +348,7 @@ public class ControllerTest {
         expected = "1.15 x 10^12";
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         actual = num.shortenLong(1.0);
         expected = "1.0 x 10^1";
         assertNotEquals("Error, test results are different than expected", expected, actual);
@@ -372,7 +372,7 @@ public class ControllerTest {
         expected = "ERROR";
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         num.divideByZero("3/4");
         actual = num.onScreenText;
         expected = "ERROR";
@@ -396,7 +396,7 @@ public class ControllerTest {
         expected = false;
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         deg.degreeMode(true);
         actual = deg.isDegreeMode;
         expected = false;
@@ -421,7 +421,7 @@ public class ControllerTest {
         expected = false;
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         deg.radianMode(true);
         actual = deg.isRadianMode;
         expected = false;
@@ -447,7 +447,7 @@ public class ControllerTest {
         expected = false;
         assertEquals("Error, test results are different than expected", expected, actual);
 
-        //Negative Test
+        //False Positive Test
         deg.gradianMode(true);
         actual = deg.isGradianMode;
         expected = false;
