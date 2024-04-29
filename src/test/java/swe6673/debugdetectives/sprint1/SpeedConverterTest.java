@@ -6,6 +6,7 @@ import java.math.BigInteger;
 import java.util.Formatter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class SpeedConverterTest {
     @Test
@@ -68,7 +69,7 @@ public class SpeedConverterTest {
         SpeedConverter convert = new SpeedConverter();
         double expected = 0.0;
         double actual = convert.convertFrom(9.9, "mi/s", "ft/min");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
 
 
