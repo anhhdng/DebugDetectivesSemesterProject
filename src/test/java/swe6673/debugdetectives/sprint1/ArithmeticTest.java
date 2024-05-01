@@ -152,7 +152,7 @@ public class ArithmeticTest {
     public void multiplyNegativeNumbers() throws Exception {
         //Purpose: Test multiply function with two negative numbers
         Arithmetic num = new Arithmetic();
-//Test 1
+        //Test 1
         double expected = 64.0;
         double actual = num.multiply(-8.0, -8.0);
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
