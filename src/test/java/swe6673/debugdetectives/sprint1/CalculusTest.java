@@ -12,7 +12,7 @@ public class CalculusTest {
 
     // Power Rule Test
     @Test
-    public void derviativeTestPowerRule() throws Exception {
+    public void derivativeTestPowerRule() throws Exception {
         //purpose: To ensure that devivatives are accurately calculated
         Calculus function = new Calculus();
 
@@ -35,7 +35,7 @@ public class CalculusTest {
 
     //Chain Rule Test
     @Test
-    public void derviativeTestChainRule() throws Exception {
+    public void derivativeTestChainRule() throws Exception {
         //purpose: To ensure that devivatives are accurately calculated
         Calculus function = new Calculus();
 
@@ -58,7 +58,7 @@ public class CalculusTest {
 
     //Product Rule Test
     @Test
-    public void derviativeTestProductRule() throws Exception {
+    public void derivativeTestProductRule() throws Exception {
         //purpose: To ensure that devivatives are accurately calculated
         Calculus function = new Calculus();
 
@@ -81,7 +81,7 @@ public class CalculusTest {
 
     //Quotient Rule Test
     @Test
-    public void derviativeTestQuotientRule() throws Exception {
+    public void derivativeTestQuotientRule() throws Exception {
         //purpose: To ensure that devivatives are accurately calculated
         Calculus function = new Calculus();
 
