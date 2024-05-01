@@ -49,7 +49,7 @@ public class MassConverterTest {
         //False Positive Test
         expected = 0;
         actual = convert.convertFrom(0.00001, "stone", "gram");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void convertMilligramToMicrogram(){
@@ -74,7 +74,7 @@ public class MassConverterTest {
         //False Positive Test
         expected = 0;
         actual = convert.convertFrom(0.0023885, "milligram", "microgram");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void convertImperialTonToUSTon(){
@@ -99,7 +99,7 @@ public class MassConverterTest {
         //False Positive Test
         expected = 0;
         actual = convert.convertFrom(1.0, "imperialTon", "USTon");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void testZeroInput(){
@@ -131,6 +131,6 @@ public class MassConverterTest {
         MassConverter convert = new MassConverter();
         double expected = 0.0;
         double actual = convert.convertFrom(199.01, "microgram", "USTon");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
 }

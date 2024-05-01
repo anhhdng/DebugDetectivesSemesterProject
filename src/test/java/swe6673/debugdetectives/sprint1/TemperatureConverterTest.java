@@ -3,23 +3,59 @@ package swe6673.debugdetectives.sprint1;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class TemperatureConverterTest {
     @Test
     public void convertCelsiusToFahrenheit1(){
         //purpose: test Celsius to Fahrenheit at boundary point of 32.0 C
         TemperatureConverter convert = new TemperatureConverter();
+
+        //Test 1
         double expected = 89.6;
         double actual = convert.celsiusToFahrenheit(32.0);
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //Test 2
+        expected = 211.82;
+        actual = convert.celsiusToFahrenheit(99.9);
+        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+
+        //Test 2
+        expected = 32.0018;
+        actual = convert.celsiusToFahrenheit(0.001);
+        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //False Positive Test
+        expected = 0;
+        actual = convert.celsiusToFahrenheit(0.001);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void convertCelsiusToFahrenheit2(){
         //purpose: test Celsius to Fahrenheit at boundary point of 0.0 C
         TemperatureConverter convert = new TemperatureConverter();
+
+        //Test 1
         double expected = 32.0;
         double actual = convert.celsiusToFahrenheit(0.0);
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //Test 2
+        expected = 211.982;
+        actual = convert.celsiusToFahrenheit(99.99);
+        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //Test 3
+        expected = 32.1782;
+        actual = convert.celsiusToFahrenheit(0.099);
+        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //False positive test
+        expected = 0;
+        actual = convert.celsiusToFahrenheit(0.099);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void convertCelsiusToFahrenheit3(){
@@ -41,9 +77,21 @@ public class TemperatureConverterTest {
     public void convertCelsiusToKelvin1(){
         //purpose: test Celsius to Kelvin at boundary point of -273.15C (absolute zero)
         TemperatureConverter convert = new TemperatureConverter();
+
+        //Test 1
         double expected = 0;
         double actual = convert.celsiusToKelvin(-273.15);
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //Test 2
+        expected = 273.151;
+        actual = convert.celsiusToKelvin(0.001);
+        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //False Positive Test
+        expected = 0;
+        actual = convert.celsiusToKelvin(0.00001);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void convertCelsiusToKelvin2(){
@@ -57,9 +105,26 @@ public class TemperatureConverterTest {
     public void convertCelsiusToKelvin3(){
         //purpose: test Celsius to Kelvin at boundary point of 0.0C
         TemperatureConverter convert = new TemperatureConverter();
+
+        //Test 1
         double expected = 273.15;
         double actual = convert.celsiusToKelvin(0.0);
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //Test 2
+        expected = 373.14;
+        actual = convert.celsiusToKelvin(99.99);
+        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //Test 3
+        expected = 373.151;
+        actual = convert.celsiusToKelvin(100.001);
+        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //False Positive Test
+        expected = 0;
+        actual = convert.celsiusToKelvin(100.001);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void convertFahrenheitToCelsius1(){
@@ -105,9 +170,26 @@ public class TemperatureConverterTest {
     public void convertFahrenheitToKelvin3(){
         //purpose: test Fahrenheit to Kelvin at boundary point of 32F
         TemperatureConverter convert = new TemperatureConverter();
+
+        //Test 1
         double expected = 273.15;
         double actual = convert.fahrenheitToKelvin(32.0);
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //Test 2
+        expected = 255.42722;
+        actual = convert.fahrenheitToKelvin(0.099);
+        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+        //Test 3
+        expected = 366.477778;
+        actual = convert.fahrenheitToKelvin(199.99);
+        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+
+       //False positive test
+       expected = 0;
+       actual = convert.fahrenheitToKelvin(199.99);
+       assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void convertKelvinToCelsius1(){
