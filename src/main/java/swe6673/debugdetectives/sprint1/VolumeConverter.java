@@ -37,6 +37,7 @@ public class VolumeConverter {
         units.put("ImperialPint", new VolumeConvert("ImperialPint", 0.568261));
         units.put("CubicFoot", new VolumeConvert("CubicFoot", 61.0237441));
         units.put("CubicInch", new VolumeConvert("CubicInch", 0.0353147));
+        //units.put("Liter", new VolumeConvert("ImperialOunce", 35.1951));
     }
 
     public double convertFrom(double amount, String unit, String toUnit) {

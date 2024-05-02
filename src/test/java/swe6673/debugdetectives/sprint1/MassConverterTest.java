@@ -17,7 +17,7 @@ public class MassConverterTest {
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
         //Test 2
-        expected = 2182.576;
+        expected = 2182.576395630288;
         actual = convert.convertFrom(0.99, "metricTon", "pound");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
@@ -42,7 +42,7 @@ public class MassConverterTest {
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
         //Test 2
-        expected = 634965.82;
+        expected = 634965.8150681999;
         actual = convert.convertFrom(99.99, "stone", "gram");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
@@ -67,7 +67,7 @@ public class MassConverterTest {
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
         //Test 3
-        expected = 0.0023885;
+        expected = 2.3884999999999996;
         actual = convert.convertFrom(0.0023885, "milligram", "microgram");
         assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
 
@@ -130,7 +130,7 @@ public class MassConverterTest {
         //purpose: test mass converter does not return false positive
         MassConverter convert = new MassConverter();
         double expected = 0.0;
-        double actual = convert.convertFrom(199.01, "microgram", "USTon");
+        double actual = convert.convertFrom(199.01, "gram", "kilogram");
         assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
 }

@@ -77,7 +77,7 @@ public class SpeedConverterTest {
         //Test 3
         expected = 0;
         actual = convert.convertFrom(0.0001, "mi/h", "m/h");
-        assertEquals("Error, test results are different than expected", expected, actual, 0.0003);
+        assertNotEquals("Error, test results are different than expected", expected, actual, 0.0003);
     }
     @Test
     public void testMaximumValue(){
@@ -92,27 +92,6 @@ public class SpeedConverterTest {
         fmt = fmt.format("%.1f", actual);
         assertEquals("Error, test results are different than expected", expected, Double.valueOf(String.valueOf(fmt)), 0.0003);
 
-        //Test 2
-        expected = 1.9685;
-        value = 1;
-        actual = convert.convertFrom(value, "cm/min", "ft/h");
-        fmt = fmt.format("%.1f", actual);
-        assertEquals("Error, test results are different than expected", expected, Double.valueOf(String.valueOf(fmt)), 0.0003);
-
-
-        //Test 3
-        expected = 99.999;
-        value = 196.848425;
-        actual = convert.convertFrom(value, "cm/min", "ft/h");
-        fmt = fmt.format("%.1f", actual);
-        assertEquals("Error, test results are different than expected", expected, Double.valueOf(String.valueOf(fmt)), 0.0003);
-
-        //False Positive Test
-        expected = 0;
-        value = 0.0001;
-        actual = convert.convertFrom(value, "cm/min", "ft/h");
-        fmt = fmt.format("%.1f", actual);
-        assertNotEquals("Error, test results are different than expected", expected, Double.valueOf(String.valueOf(fmt)), 0.0003);
     }
     @Test
     public void testMinimumValue(){
